@@ -5,6 +5,7 @@ public class GB {
     private String password;
     private String context;
     private String date_time;
+    private int id;
 //    private String timestamp;
      
     public String getEmail() {
@@ -12,6 +13,12 @@ public class GB {
     }
     public void setEmail(String email) {
         this.email = email;
+    }
+    public int getId() {
+        return id;
+    }
+    public void setId(int Id) {
+        this.id = Id;
     }
     public String getpassword() {
         return password;

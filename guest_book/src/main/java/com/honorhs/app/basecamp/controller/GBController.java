@@ -25,8 +25,8 @@ public class GBController {
     @RequestMapping(value = "/", method = RequestMethod.GET)
     public String home(Model model,
     		@ModelAttribute("GB") GB gb) {
-
-    	if(gb.getEmail()==null){
+    	
+    	if(gb.getEmail()==null || gb.getId()==0){
     		model.addAttribute("GB", GBService.getGBList());
     	}
         
@@ -54,5 +54,12 @@ public class GBController {
         return "redirect:/";
     }
     
+    @RequestMapping(value = "/delete", method = RequestMethod.GET)
+    public String delete(@ModelAttribute("GB") GB gb,
+            RedirectAttributes redirectAttributes, Model model) {
+    	this.GBService.delete(gb);     
+        redirectAttributes.addFlashAttribute("message", "추가되었습니다.");  
+        return "redirect:/";
+    }
     
 }

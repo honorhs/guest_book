@@ -7,4 +7,5 @@ public interface GBService {
 	List<GB> getGBList();
 	void add(GB Item);
 	List<GB> m_list(GB Item);
+    void delete(GB gb);
 }

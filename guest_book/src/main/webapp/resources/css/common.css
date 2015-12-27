@@ -423,3 +423,25 @@ input[type=button] {
   color:rgba(0,0,0,.4);
   outline:none;
 }
+
+div.custom_box{
+	position:relative;
+	width:20%;
+	height:0;
+	left:45%;
+	top:-175;
+	display:none;
+}
+
+p.c_box, p.c_box2{
+	width: 30px;
+    margin: 0;
+    padding: 0;
+    display: inline;
+}
+
+input#Context{
+	height:100px;
+	word-break: break-word;
+	
+}
