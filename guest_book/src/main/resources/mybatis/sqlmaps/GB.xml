@@ -6,6 +6,7 @@
         <id     property="email"    column="email" />
         <result property="password" column="password" />
         <result property="context"  column="context" />
+        <result property="id"  		column="id" />
     </resultMap>
     
     
@@ -24,7 +25,8 @@
         SELECT
             email,
             password,
-            context
+            context,
+            id
         FROM
             content
         WHERE email=#{email}
