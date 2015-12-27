@@ -6,7 +6,6 @@
         <id     property="email"    column="email" />
         <result property="password" column="password" />
         <result property="context"  column="context" />
-        <result property="id"  		column="id" />
     </resultMap>
     
     
@@ -34,16 +33,30 @@
     
     <insert id="add" >
         INSERT INTO
-        	content(email, password, context, date_time)
+        	content(email, password, context, time_stamp)
         VALUES(
             #{email},
             #{password},
             #{context},
-            #{date_time}
+            #{time_stamp}
         )
     </insert>
     
     <delete id="delete" >
-        delete from content where id=#{id}
+        DELETE FROM 
+        	content 
+        WHERE 
+        	id=#{id}
     </delete>
+    
+    <update id="update" >
+		UPDATE 
+			content
+		SET 
+			context = #{context},
+			time_stamp = #{time_stamp}
+		WHERE
+			id = #{id}
+
+	</update>
 </mapper>

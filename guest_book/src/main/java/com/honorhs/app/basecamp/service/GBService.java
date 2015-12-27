@@ -8,4 +8,5 @@ public interface GBService {
 	void add(GB Item);
 	List<GB> m_list(GB Item);
     void delete(GB gb);
+    void update(GB gb);
 }

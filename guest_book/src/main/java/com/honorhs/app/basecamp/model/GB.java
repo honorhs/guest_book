@@ -5,9 +5,9 @@ public class GB {
     private String password;
     private String context;
     private String date_time;
+    private String time_stamp;
     private int id;
-//    private String timestamp;
-     
+
     public String getEmail() {
         return email;
     }
@@ -37,5 +37,11 @@ public class GB {
     }
     public String getdate_time(){
     	return date_time;
+    }
+    public void settime_stamp(String time_stamp){
+    	this.time_stamp = time_stamp;
+    }
+    public String gettime_stamp(){
+    	return time_stamp;
     }
 }

@@ -32,6 +32,10 @@ public class GBDaoImpl implements GBDao{
 	public void delete(GB gb){
 		sqlSession.selectList("delete", gb);
 	}
+
+	public void update(GB gb){
+		sqlSession.selectList("update", gb);
+	}
 	
 	public List<GB> m_list(GB gb){
 		return sqlSession.selectList("m_list", gb);
