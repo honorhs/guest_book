@@ -40,8 +40,7 @@ public class GBController {
     	DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
     	Date date = new Date();
     	gb.settime_stamp(dateFormat.format(date));
-    	
-        this.GBService.add(gb);      
+    
         redirectAttributes.addFlashAttribute("message", "추가되었습니다.");       
         return "redirect:/";
     }
@@ -50,6 +49,7 @@ public class GBController {
     public String Mylist(@ModelAttribute("GB") GB gb,
             RedirectAttributes redirectAttributes, Model model) {
     	
+    	System.out.println(gb.getEmail());
     	redirectAttributes.addFlashAttribute("GB", this.GBService.m_list(gb) );     
         return "redirect:/";
     }
