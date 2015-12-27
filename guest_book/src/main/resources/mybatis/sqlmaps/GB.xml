@@ -19,7 +19,16 @@
         ORDER BY time_stamp ASC 
     </select>
     
-
+    <select id="m_list" resultMap="sampleMap">
+        SELECT
+            email,
+            password,
+            context
+        FROM
+            content
+        WHERE email=#{email}
+        ORDER BY time_stamp ASC 
+    </select>
     
     <insert id="add" >
         INSERT INTO

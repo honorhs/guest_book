@@ -412,3 +412,14 @@ input#w_context{
 	white-space: pre;
  	word-break: break-word; 
 }
+
+
+
+input[type=button] {
+  padding:5px 15px; background:transparent; border:0 none;
+  cursor:pointer;
+  -webkit-border-radius: 5px;
+  border-radius: 5px; 
+  color:rgba(0,0,0,.4);
+  outline:none;
+}

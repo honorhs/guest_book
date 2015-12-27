@@ -50,21 +50,21 @@
 </div>
 <div class='container'>
   <div id='f_write'>
-     <form action='/app/write' name="f_write">
-       <input name='Email' type='text' placeholder='Email'  />
-       <input name='Password' type='text' placeholder='Password'  />
-       <input type='text' placeholder='Confirm Password'  />
-       <input name='Context' type='text' id="w_context" placeholder='Context'  />
-       <input type='submit' value="Submit" placeholder='SUBMIT' />
+     <form name="f_write">
+       <input id="Email" name='Email' type='text' required="required" placeholder='Email'  />
+       <input id="Password" name='Password' type='text' required="required" placeholder='Password'  />
+       <input type='text' required="required" placeholder='Confirm Password'  />
+       <input id="Conext" name='Context' type='text' id="w_context" required="required" placeholder='Context'  />
+       <input type='button' id="btnValidate" value="Submit" />
      </form>
   </div>
 </div>
 <div class='container2'>
   <div id='f_modify'>
-     <form action='/app/m_list' name="f_list">
-       <input name='Email' type='text' placeholder='Email'  />
-       <input name='Password' type='text' placeholder='Password'  />
-       <input type='submit' value="Submit" placeholder='SUBMIT' />
+     <form name="f_list">
+       <input id="Email2" name='Email' type='text' required="required" placeholder='Email'  />
+       <input id="Password2" name='Password' type='text' required="required" placeholder='Password'  />
+       <input type='button' id="btnValidate2" value="Submit" />
      </form>
   </div>
 </div>
