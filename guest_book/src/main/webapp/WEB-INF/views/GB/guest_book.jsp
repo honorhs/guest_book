@@ -14,16 +14,19 @@
 <div id="box"> 
 	<section>
 		<c:forEach var="guest_books" items="${GB}">
-		<div class="lists">
-			<h2 class="email_addr">${guest_books.email} <p class="time_stamp">2015-12-11 06:03:25</p></h2>
-			<div class="context">
-				<p>${guest_books.context}</p>
+		<div>
+			<div class="lists">
+				<h2 class="email_addr">${guest_books.email}</h2>
+				<p class="time_stamp">2015-12-11 06:03:25</p>
+				<div class="context">
+					<p>${guest_books.context}</p>
+				</div>
 			</div>
-		</div>
-		<div class="custom_box">
-			<p class="c_box">수정</p>
-			<p class="c_box2">삭제</p>
-			<input type="hidden" id="idx_num" value="<c:out value="${ guest_books.id }"/>"/>
+			<div class="custom_box">
+				<p class="c_box">수정</p>
+				<p class="c_box2">삭제</p>
+				<input type="hidden" id="idx_num" value="<c:out value="${ guest_books.id }"/>"/>
+			</div>
 		</div>
 		</c:forEach>
 	</section>
@@ -56,10 +59,11 @@
 <div class='container'>
   <div id='f_write'>
      <form name="f_write">
-       <input id="Email" name='Email' type='text' required="required" placeholder='Email'  />
+       <input id="Email" name='Email' type='text' required="required" placeholder='Email' />
        <input id="Password" name='Password' type='text' required="required" placeholder='Password'  />
        <input type='text' required="required" placeholder='Confirm Password'  />
        <input id="Context" name='Context' type='text' id="w_context" required="required" placeholder='Context'  />
+       <input id="id" name='id' type='hidden'/>
        <input type='button' id="btnValidate" value="Submit" />
      </form>
   </div>

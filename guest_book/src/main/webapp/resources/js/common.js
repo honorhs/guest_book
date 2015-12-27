@@ -1,5 +1,6 @@
 $(function(){
   $('#modify').click(function(){
+	  $('#id').val('');
 	  $('.container').hide();
 	  $('.container2').show();
     });
@@ -7,6 +8,7 @@ $(function(){
 
 $(function(){
   $('#write').click(function(){
+	 $('#id').val('');
 	 $('.container2').hide();
      $('.container').show();	     
     });
@@ -30,7 +32,14 @@ $(function(){
 			alert('Invalid Email Address');
 			e.preventDefault();
 		}
-		$('form[name=f_write]').attr('action','/app/write').submit();
+		if($('#id').val().length>0){
+
+			$('form[name=f_write]').attr('action','/app/update').submit();
+		}
+		else{
+			$('#id').val(0);
+			$('form[name=f_write]').attr('action','/app/write').submit();	
+		}
 	});
 });
 
@@ -80,3 +89,17 @@ $(function(){
 	});
 });
 
+$(function(){
+	$('.c_box').click(function() {
+		var data = $(this).siblings('#idx_num').val();
+		var f_parent = $(this).parent().parent();
+		var email_addr = f_parent.find('h2')[0].innerText;
+		var context = f_parent.find('p')[1].innerText;
+		
+		$('#Email').val(email_addr);
+		$('#Context').val(context);
+		$('#id').val(data);
+		$('.container').show();	
+		
+	});
+});
