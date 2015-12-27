@@ -29,4 +29,9 @@ public class GBServiceImpl implements GBService {
     public void add(GB gb) {
     	this.GBDao.add(gb);
     }
+    
+    @Override
+    public void delete(GB gb) {
+    	this.GBDao.delete(gb);
+    }
 }

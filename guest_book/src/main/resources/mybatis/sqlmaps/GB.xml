@@ -6,6 +6,7 @@
         <id     property="email"    column="email" />
         <result property="password" column="password" />
         <result property="context"  column="context" />
+        <result property="id"  		column="id" />
     </resultMap>
     
     
@@ -13,7 +14,8 @@
         SELECT
             email,
             password,
-            context
+            context,
+            id
         FROM
             content
         ORDER BY time_stamp ASC 
@@ -40,4 +42,8 @@
             #{date_time}
         )
     </insert>
+    
+    <delete id="delete" >
+        delete from content where id=#{id}
+    </delete>
 </mapper>

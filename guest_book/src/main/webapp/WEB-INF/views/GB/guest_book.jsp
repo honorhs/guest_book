@@ -20,6 +20,11 @@
 				<p>${guest_books.context}</p>
 			</div>
 		</div>
+		<div class="custom_box">
+			<p class="c_box">수정</p>
+			<p class="c_box2">삭제</p>
+			<input type="hidden" id="idx_num" value="<c:out value="${ guest_books.id }"/>"/>
+		</div>
 		</c:forEach>
 	</section>
 </div>
@@ -54,7 +59,7 @@
        <input id="Email" name='Email' type='text' required="required" placeholder='Email'  />
        <input id="Password" name='Password' type='text' required="required" placeholder='Password'  />
        <input type='text' required="required" placeholder='Confirm Password'  />
-       <input id="Conext" name='Context' type='text' id="w_context" required="required" placeholder='Context'  />
+       <input id="Context" name='Context' type='text' id="w_context" required="required" placeholder='Context'  />
        <input type='button' id="btnValidate" value="Submit" />
      </form>
   </div>

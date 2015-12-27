@@ -44,3 +44,39 @@ function validateEmail(sEmail) {
 		return false;
 	}
 }
+
+
+$(function(){
+	$('.lists').hover(
+		function(){
+			$('.custom_box').show();
+		},
+		function(){
+			$('.custom_box').hide();
+		}
+	);
+	$('.custom_box').hover(
+			function(){
+				$('.custom_box').show();
+			},
+			function(){
+				$('.custom_box').hide();
+			}
+		);
+});
+
+$(function(){
+	$('.c_box2').click(function() {
+		var data = $(this).siblings('#idx_num').val();
+		var allData = {"id":data};
+        $.ajax({
+            url : "/app/delete",
+            data : allData,
+            type: "GET",          
+            success : function(response) {
+            	window.location = '/app';
+            }
+        });
+	});
+});
+
