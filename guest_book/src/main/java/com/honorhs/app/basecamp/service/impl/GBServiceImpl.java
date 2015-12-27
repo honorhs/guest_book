@@ -19,4 +19,14 @@ public class GBServiceImpl implements GBService {
     public List<GB> getGBList() {
         return GBDao.getGBList();
     }
+    
+    @Override
+    public List<GB> m_list(GB Item) {
+        return GBDao.m_list(Item);
+    }
+    
+    @Override
+    public void add(GB gb) {
+    	this.GBDao.add(gb);
+    }
 }

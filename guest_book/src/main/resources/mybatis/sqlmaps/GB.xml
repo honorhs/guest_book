@@ -1,7 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.honorhs.app.basecamp">
+<mapper namespace="com.honorhs.app.basecamp.dao.impl.GBDao">
+    <resultMap id="sampleMap" type="com.honorhs.app.basecamp.model.GB">
+        <id     property="email"    column="email" />
+        <result property="password" column="password" />
+        <result property="context"  column="context" />
+    </resultMap>
+    
+    
     <select id="getGBList" resultType="com.honorhs.app.basecamp.model.GB">
         SELECT
             email,
@@ -9,5 +16,19 @@
             context
         FROM
             content
+        ORDER BY time_stamp ASC 
     </select>
+    
+
+    
+    <insert id="add" >
+        INSERT INTO
+        	content(email, password, context, date_time)
+        VALUES(
+            #{email},
+            #{password},
+            #{context},
+            #{date_time}
+        )
+    </insert>
 </mapper>
