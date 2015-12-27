@@ -23,10 +23,13 @@ public class GBController {
     GBService GBService;
      
     @RequestMapping(value = "/", method = RequestMethod.GET)
-    public String home(Model model) {
-         
-        model.addAttribute("GB", GBService.getGBList());       
-         
+    public String home(Model model,
+    		@ModelAttribute("GB") GB gb) {
+
+    	if(gb.getEmail()==null){
+    		model.addAttribute("GB", GBService.getGBList());
+    	}
+        
         return "/GB/guest_book";
     }
     
@@ -43,7 +46,13 @@ public class GBController {
         return "redirect:/";
     }
      
-
+    @RequestMapping(value = "/m_list", method = RequestMethod.GET)
+    public String Mylist(@ModelAttribute("GB") GB gb,
+            RedirectAttributes redirectAttributes, Model model) {
+    	
+    	redirectAttributes.addFlashAttribute("GB", this.GBService.m_list(gb) );     
+        return "redirect:/";
+    }
     
     
 }
