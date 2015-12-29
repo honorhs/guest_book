@@ -41,7 +41,7 @@ public class GBController {
     	gb.settime_stamp(dateFormat.format(date));
 
     	this.GBService.add(gb);     
-        redirectAttributes.addFlashAttribute("message", "추가되었습니다.");       
+        redirectAttributes.addFlashAttribute("message", "추가되었습니다");       
         return "redirect:/";
     }
      
@@ -57,7 +57,7 @@ public class GBController {
     public String delete(@ModelAttribute("GB") GB gb,
             RedirectAttributes redirectAttributes, Model model) {
     	this.GBService.delete(gb);     
-        redirectAttributes.addFlashAttribute("message", "추가되었습니다.");  
+        redirectAttributes.addFlashAttribute("message", "추가되었습니다");  
         return "redirect:/";
     }
     
@@ -67,10 +67,13 @@ public class GBController {
     	DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
     	Date date = new Date();
     	gb.settime_stamp(dateFormat.format(date));
+    	System.out.println(this.GBService.update(gb));
     	if(this.GBService.update(gb)==0){
-    		redirectAttributes.addFlashAttribute("message", "비밀번호 오류.");
+    		redirectAttributes.addFlashAttribute("message", "비밀번호 오류");
     	}
-    	redirectAttributes.addFlashAttribute("message", "수정 성공");
+    	else{
+    		redirectAttributes.addFlashAttribute("message", "수정 성공");
+    	}
         return "redirect:/";
     }
     

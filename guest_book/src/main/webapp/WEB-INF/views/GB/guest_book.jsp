@@ -56,6 +56,9 @@
 	    </section>
 	</div>
 </div>
+<div id="dialog-overlay"><p id='message'>${message}</p></div>
+
+
 <div class='container'>
   <div id='f_write'>
      <form name="f_write">
@@ -63,7 +66,7 @@
        <input id="Password" name='Password' type='text' required="required" placeholder='Password'  />
        <input type='text' required="required" placeholder='Confirm Password'  />
        <input id="Context" name='Context' type='text' id="w_context" required="required" placeholder='Context'  />
-       <input id="id" name='id' type='hidden' value="23"/>
+       <input id="id" name='id' type='hidden'>
        <input type='button' id="btnValidate" value="Submit" />
      </form>
   </div>
@@ -73,6 +76,7 @@
      <form name="f_list">
        <input id="Email2" name='Email' type='text' required="required" placeholder='Email'  />
        <input id="Password2" name='Password' type='text' required="required" placeholder='Password'  />
+       <input id="id2" name='id' type='hidden'/>
        <input type='button' id="btnValidate2" value="Submit" />
      </form>
   </div>
