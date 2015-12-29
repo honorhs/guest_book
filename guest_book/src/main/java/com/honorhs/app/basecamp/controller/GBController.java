@@ -6,7 +6,6 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.honorhs.app.basecamp.service.GBService;
@@ -40,7 +39,8 @@ public class GBController {
     	DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
     	Date date = new Date();
     	gb.settime_stamp(dateFormat.format(date));
-    
+
+    	this.GBService.add(gb);     
         redirectAttributes.addFlashAttribute("message", "추가되었습니다.");       
         return "redirect:/";
     }
@@ -49,7 +49,6 @@ public class GBController {
     public String Mylist(@ModelAttribute("GB") GB gb,
             RedirectAttributes redirectAttributes, Model model) {
     	
-    	System.out.println(gb.getEmail());
     	redirectAttributes.addFlashAttribute("GB", this.GBService.m_list(gb) );     
         return "redirect:/";
     }
@@ -68,9 +67,10 @@ public class GBController {
     	DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
     	Date date = new Date();
     	gb.settime_stamp(dateFormat.format(date));
-    	
-    	this.GBService.update(gb);     
-        redirectAttributes.addFlashAttribute("message", "추가되었습니다.");  
+    	if(this.GBService.update(gb)==0){
+    		redirectAttributes.addFlashAttribute("message", "비밀번호 오류.");
+    	}
+    	redirectAttributes.addFlashAttribute("message", "수정 성공");
         return "redirect:/";
     }
     

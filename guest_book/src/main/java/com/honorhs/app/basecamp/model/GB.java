@@ -8,12 +8,20 @@ public class GB {
     private String time_stamp;
     private int id;
 
+    public GB(){
+    	this.email = null;
+    }
+    public GB(GB Item){
+    	this.email = Item.getEmail();
+    	this.email = Item.getpassword();
+    }
     public String getEmail() {
         return email;
     }
     public void setEmail(String email) {
         this.email = email;
     }
+    
     public int getId() {
         return id;
     }
@@ -43,5 +51,11 @@ public class GB {
     }
     public String gettime_stamp(){
     	return time_stamp;
+    }
+    public boolean check(){
+    	if(this.email.isEmpty()){
+    		return false; 
+    	}
+    	return true;
     }
 }

@@ -4,8 +4,9 @@ import com.honorhs.app.basecamp.model.GB;
  
 public interface GBDao {
 	List<GB> getGBList();
+	GB pw_check();
     void add(GB gb);
     void delete(GB gb);
-    void update(GB gb);
+    int update(GB gb);
     List<GB> m_list(GB gb);
 }

@@ -2,7 +2,6 @@ package com.honorhs.app.basecamp.dao.impl;
 import java.util.List;
 
 import org.apache.ibatis.session.SqlSession;
-import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
  
@@ -24,6 +23,11 @@ public class GBDaoImpl implements GBDao{
     public List<GB> getGBList() {
         return sqlSession.selectList("getGBList");
     }
+    
+    @Override
+    public GB pw_check() {
+        return sqlSession.selectOne("pw_check");
+    }
 
 	public void add(GB gb){
 		sqlSession.selectList("add", gb);
@@ -33,8 +37,10 @@ public class GBDaoImpl implements GBDao{
 		sqlSession.selectList("delete", gb);
 	}
 
-	public void update(GB gb){
-		sqlSession.selectList("update", gb);
+	public int update(GB gb){
+		int c = sqlSession.update("update", gb);
+		return c;
+		
 	}
 	
 	public List<GB> m_list(GB gb){
