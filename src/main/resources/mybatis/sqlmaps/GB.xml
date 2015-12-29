@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.honorhs.app.basecamp.dao.impl.GBDao">
+    <resultMap id="sampleMap" type="com.honorhs.app.basecamp.model.GB">
+        <id     property="email"    column="email" />
+        <result property="password" column="password" />
+        <result property="context"  column="context" />
+        <result property="id"  		column="id" />
+    </resultMap>
+    
+    
+    <select id="getGBList" resultType="com.honorhs.app.basecamp.model.GB">
+        SELECT
+            email,
+            password,
+            context,
+            id
+        FROM
+            content
+        ORDER BY time_stamp ASC 
+    </select>
+    
+    <select id="m_list" resultMap="sampleMap">
+        SELECT
+            email,
+            password,
+            context,
+            id
+        FROM
+            content
+        WHERE email=#{email}
+        ORDER BY time_stamp ASC 
+    </select>
+    
+	<select id="pw_check" resultMap="sampleMap">
+        SELECT
+        	email,	
+            password
+        FROM
+            content
+        WHERE 
+        	id=#{id} 
+    </select>
+    
+    <insert id="add" >
+        INSERT INTO
+        	content(email, password, context, time_stamp)
+        VALUES(
+            #{email},
+            #{password},
+            #{context},
+            #{time_stamp}
+        )
+    </insert>
+    
+    <delete id="delete" >
+        DELETE FROM 
+        	content 
+        WHERE 
+        	id=#{id}
+    </delete>
+    
+    <update id="update"  >
+		UPDATE 
+			content
+		SET 
+			context = #{context},
+			time_stamp = #{time_stamp}
+		WHERE
+			id = #{id}
+			AND password = #{password}
+
+	</update>
+</mapper>
