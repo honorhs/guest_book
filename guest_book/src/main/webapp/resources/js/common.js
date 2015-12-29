@@ -1,3 +1,5 @@
+
+
 $(function(){
   $('#modify').click(function(){
 	  $('#id').val('');
@@ -18,10 +20,18 @@ $(function(){
 	$('#btnValidate2').click(function() {
 		var sEmail = $('#Email2').val();
 		if (!validateEmail(sEmail)) {
-			alert('Invalid Email Address');
+			$('#message')[0].innerHTML = "이메일 형식 오류";
+			$("#dialog-overlay").show();
 			e.preventDefault();
 		}
-		$('form[name=f_list]').attr('action','/app/m_list').submit();
+		if($('#id2').val().length>0){	
+			$('form[name=f_list]').attr('action','/app/update').submit();
+			$('#id2').val(0);
+		}
+		else{
+			$('#id2').val(0);
+			$('form[name=f_list]').attr('action','/app/m_list').submit();	
+		}
 	});
 });
 
@@ -29,7 +39,8 @@ $(function(){
 	$('#btnValidate').click(function() {
 		var sEmail = $('#Email').val();
 		if (!validateEmail(sEmail)) {
-			alert('Invalid Email Address');
+			$('#message')[0].innerHTML = "이메일 형식 오류";
+			 $("#dialog-overlay").show();
 			e.preventDefault();
 		}
 		if($('#id').val().length>0){
@@ -78,20 +89,18 @@ $(function(){
 $(function(){
 	$('.c_box2').click(function() {
 		var data = $(this).siblings('#idx_num').val();
-		var allData = {"id":data};
-        $.ajax({
-            url : "/app/delete",
-            data : allData,
-            type: "GET",          
-            success : function(response) {
-            	window.location = '/app';
-            }
-        });
+		var f_parent = $(this).parent().parent();
+		var email_addr = f_parent.find('h2')[0].innerText;
+		
+		$('#Email2').val(email_addr);
+		$('#id2').val(data);
+		$('.container2').show();	
 	});
 });
 
 $(function(){
 	$('.c_box').click(function() {
+		$('.container2').hide();	
 		var data = $(this).siblings('#idx_num').val();
 		var f_parent = $(this).parent().parent();
 		var email_addr = f_parent.find('h2')[0].innerText;
@@ -103,4 +112,19 @@ $(function(){
 		$('.container').show();	
 		
 	});
+});
+
+$(function(){
+	$('#dialog-overlay').click(function() {
+		$('#dialog-overlay').hide();
+	});
+});
+
+$(document).ready(function() {
+	 if($('#message')[0].innerHTML){
+		 $("#dialog-overlay").show();
+	 }
+	 else{
+		 $("#dialog-overlay").hide();
+	 }
 });

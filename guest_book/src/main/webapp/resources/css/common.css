@@ -445,3 +445,42 @@ input#Context{
 	word-break: break-word;
 	
 }
+
+
+#message{
+	font-size:30px;
+	z-index:3001; 
+	padding:0 auto;
+	text-align:center;
+	color:white;
+}
+
+
+#dialog-overlay {
+
+	/* set it to fill the whil screen */
+	width:100%; 
+	height:100%;
+	
+	/* transparency for different browsers */
+	filter:alpha(opacity=50); 
+	-moz-opacity:0.5; 
+	-khtml-opacity: 0.5; 
+	opacity: 0.5; 
+	background:#000; 
+
+	/* make sure it appear behind the dialog box but above everything else */
+	position:absolute; 
+	top:0; left:0; 
+	z-index:3000; 
+	left:40%;
+	top:40%;
+	
+	width:20%;
+	height:7%;
+	padding:0 auto;
+	margin:0 auto;
+	-moz-border-radius: 5px;
+    -webkit-border-radius: 10px;
+
+}
