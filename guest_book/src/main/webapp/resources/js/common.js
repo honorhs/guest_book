@@ -33,8 +33,9 @@ $(function(){
 			e.preventDefault();
 		}
 		if($('#id').val().length>0){
-
+			
 			$('form[name=f_write]').attr('action','/app/update').submit();
+			$('#id').val(0);
 		}
 		else{
 			$('#id').val(0);
