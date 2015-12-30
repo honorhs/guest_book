@@ -5,17 +5,10 @@ import com.honorhs.app.basecamp.model.GB;
 public interface GBService {
 	
 	List<GB> getGBList();
-<<<<<<< HEAD:src/main/java/com/honorhs/app/basecamp/service/GBService.java
-	GB pw_check();
-	void add(GB Item);
-	List<GB> m_list(GB Item);
-    void delete(GB gb);
-=======
 	List<GB> search_bar(GB Item);
 	GB pw_check();
 	void add(GB Item);
 	List<GB> m_list(GB Item);
 	int delete(GB gb);
->>>>>>> develop:src/main/java/com/honorhs/app/basecamp/service/GBService.java
     int update(GB gb);
 }

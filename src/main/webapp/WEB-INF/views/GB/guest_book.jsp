@@ -17,11 +17,7 @@
 		<div>
 			<div class="lists">
 				<h2 class="email_addr">${guest_books.email}</h2>
-<<<<<<< HEAD:src/main/webapp/WEB-INF/views/GB/guest_book.jsp
-				<p class="time_stamp">2015-12-11 06:03:25</p>
-=======
 				<p class="time_stamp">${guest_books.time_stamp}</p>
->>>>>>> develop:src/main/webapp/WEB-INF/views/GB/guest_book.jsp
 				<div class="context">
 					<p>${guest_books.context}</p>
 				</div>
@@ -68,11 +64,7 @@
      <form name="f_write">
        <input id="Email" name='Email' type='text' required="required" placeholder='Email' />
        <input id="Password" name='Password' type='text' required="required" placeholder='Password'  />
-<<<<<<< HEAD:src/main/webapp/WEB-INF/views/GB/guest_book.jsp
-       <input type='text' required="required" placeholder='Confirm Password'  />
-=======
        <input type='text' name='Password2' required="required" placeholder='Confirm Password'  />
->>>>>>> develop:src/main/webapp/WEB-INF/views/GB/guest_book.jsp
        <input id="Context" name='Context' type='text' id="w_context" required="required" placeholder='Context'  />
        <input id="id" name='id' type='hidden'>
        <input type='button' id="btnValidate" value="Submit" />
@@ -90,13 +82,8 @@
   </div>
 </div>
 <div id="search">
-<<<<<<< HEAD:src/main/webapp/WEB-INF/views/GB/guest_book.jsp
-	<form method="get" action="/search" id="search">
-	  <input name="q" type="text" size="40" placeholder="Search..." />
-=======
 	<form id="search" name="search3">
 	  <input name="search" id="search2" type="text" size="40" placeholder="Search..." />
->>>>>>> develop:src/main/webapp/WEB-INF/views/GB/guest_book.jsp
 	</form>
 </div>
 <div id="footer">
