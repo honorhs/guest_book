@@ -21,6 +21,11 @@ public class GBServiceImpl implements GBService {
     }
     
     @Override
+    public List<GB> search_bar(GB Item) {
+        return GBDao.search_bar(Item);
+    }
+    
+    @Override
     public GB pw_check() {
         return GBDao.pw_check();
     }
@@ -36,12 +41,13 @@ public class GBServiceImpl implements GBService {
     }
     
     @Override
-    public void delete(GB gb) {
-    	this.GBDao.delete(gb);
+    public int delete(GB gb) {
+    	return this.GBDao.delete(gb);
     }
     
     @Override
     public int update(GB gb) {
     	return this.GBDao.update(gb);
     }
+    
 }

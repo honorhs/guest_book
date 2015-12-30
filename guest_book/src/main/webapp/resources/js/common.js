@@ -25,7 +25,7 @@ $(function(){
 			e.preventDefault();
 		}
 		if($('#id2').val().length>0){	
-			$('form[name=f_list]').attr('action','/app/update').submit();
+			$('form[name=f_list]').attr('action','/app/delete').submit();
 			$('#id2').val(0);
 		}
 		else{
@@ -127,4 +127,9 @@ $(document).ready(function() {
 	 else{
 		 $("#dialog-overlay").hide();
 	 }
+     $("#search2").bind("keydown", function(e) {
+         if (e.keyCode == 13) { // enter key
+        	 $('form[name=search3]').attr('action','/app/search_bar').submit();	
+         }
+     })
 });

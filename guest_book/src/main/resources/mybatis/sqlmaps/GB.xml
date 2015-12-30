@@ -15,21 +15,21 @@
             email,
             password,
             context,
+            time_stamp,
             id
         FROM
             content
-        ORDER BY time_stamp ASC 
+        ORDER BY time_stamp DESC 
     </select>
     
     <select id="m_list" resultMap="sampleMap">
         SELECT
             email,
-            password,
             context,
             id
         FROM
             content
-        WHERE email=#{email}
+        WHERE email=#{email} AND password=#{password}
         ORDER BY time_stamp ASC 
     </select>
     
@@ -41,6 +41,18 @@
             content
         WHERE 
         	id=#{id} 
+    </select>
+    
+    <select id="search_bar" resultMap="sampleMap">
+        SELECT
+			email,
+            context,
+            time_stamp,
+            id
+        FROM
+            content
+        WHERE 
+        	context LIKE '%${search}%' 
     </select>
     
     <insert id="add" >
@@ -58,7 +70,7 @@
         DELETE FROM 
         	content 
         WHERE 
-        	id=#{id}
+        	id=#{id} AND password=#{password}
     </delete>
     
     <update id="update"  >
