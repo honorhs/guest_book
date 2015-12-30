@@ -15,21 +15,36 @@
             email,
             password,
             context,
+<<<<<<< HEAD:src/main/resources/mybatis/sqlmaps/GB.xml
             id
         FROM
             content
         ORDER BY time_stamp ASC 
+=======
+            time_stamp,
+            id
+        FROM
+            content
+        ORDER BY time_stamp DESC 
+>>>>>>> develop:src/main/resources/mybatis/sqlmaps/GB.xml
     </select>
     
     <select id="m_list" resultMap="sampleMap">
         SELECT
             email,
+<<<<<<< HEAD:src/main/resources/mybatis/sqlmaps/GB.xml
             password,
+=======
+>>>>>>> develop:src/main/resources/mybatis/sqlmaps/GB.xml
             context,
             id
         FROM
             content
+<<<<<<< HEAD:src/main/resources/mybatis/sqlmaps/GB.xml
         WHERE email=#{email}
+=======
+        WHERE email=#{email} AND password=#{password}
+>>>>>>> develop:src/main/resources/mybatis/sqlmaps/GB.xml
         ORDER BY time_stamp ASC 
     </select>
     
@@ -43,6 +58,21 @@
         	id=#{id} 
     </select>
     
+<<<<<<< HEAD:src/main/resources/mybatis/sqlmaps/GB.xml
+=======
+    <select id="search_bar" resultMap="sampleMap">
+        SELECT
+			email,
+            context,
+            time_stamp,
+            id
+        FROM
+            content
+        WHERE 
+        	context LIKE '%${search}%' 
+    </select>
+    
+>>>>>>> develop:src/main/resources/mybatis/sqlmaps/GB.xml
     <insert id="add" >
         INSERT INTO
         	content(email, password, context, time_stamp)
@@ -58,7 +88,11 @@
         DELETE FROM 
         	content 
         WHERE 
+<<<<<<< HEAD:src/main/resources/mybatis/sqlmaps/GB.xml
         	id=#{id}
+=======
+        	id=#{id} AND password=#{password}
+>>>>>>> develop:src/main/resources/mybatis/sqlmaps/GB.xml
     </delete>
     
     <update id="update"  >
